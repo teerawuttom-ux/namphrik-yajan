@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>น้ำพริกย่าจัน – รสชาติต้นตำรับ สูตรคุณยาย</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600;700;800&display=swap');
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+  :root{
+    --green:#1a5c38;
+    --green-light:#2d7a4f;
+    --orange:#e8621a;
+    --orange-light:#f47d35;
+    --cream:#fdf8f0;
+    --brown:#5c3d1e;
+  }
+  body{font-family:'Sarabun',sans-serif;background:#fff;color:#333;}
+
+  /* NAV */
+  nav{background:var(--green);padding:14px 20px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,.3);}
+  .logo{color:#fff;font-size:1.3rem;font-weight:800;letter-spacing:.5px;}
+  .logo span{color:#f9c74f;}
+  .nav-cta{background:var(--orange);color:#fff;border:none;padding:8px 18px;border-radius:20px;font-family:'Sarabun',sans-serif;font-size:.95rem;font-weight:700;cursor:pointer;text-decoration:none;}
+  .nav-cta:hover{background:var(--orange-light);}
+
+  /* HERO */
+  .hero{background:linear-gradient(135deg,var(--green) 0%,var(--green-light) 60%,#3a9c62 100%);padding:60px 20px 70px;text-align:center;position:relative;overflow:hidden;}
+  .hero::before{content:'🌿';font-size:120px;opacity:.08;position:absolute;top:-10px;right:-20px;}
+  .hero::after{content:'🌶️';font-size:100px;opacity:.08;position:absolute;bottom:-10px;left:-10px;}
+  .hero-badge{display:inline-block;background:var(--orange);color:#fff;font-size:.8rem;font-weight:700;padding:4px 14px;border-radius:20px;margin-bottom:16px;letter-spacing:.5px;}
+  .hero h1{color:#fff;font-size:2.4rem;font-weight:800;line-height:1.25;margin-bottom:12px;text-shadow:0 2px 8px rgba(0,0,0,.2);}
+  .hero h1 span{color:#f9c74f;}
+  .hero p{color:#c8f0d8;font-size:1.1rem;margin-bottom:30px;line-height:1.6;}
+  .hero-emojis{font-size:2.5rem;margin-bottom:20px;display:block;}
+  .btn-order{display:inline-block;background:var(--orange);color:#fff;font-size:1.15rem;font-weight:800;padding:15px 40px;border-radius:50px;text-decoration:none;box-shadow:0 4px 16px rgba(232,98,26,.45);transition:transform .2s,box-shadow .2s;}
+  .btn-order:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(232,98,26,.55);}
+  .btn-order:active{transform:scale(.97);}
+  .hero-note{color:#a8e6bf;font-size:.85rem;margin-top:12px;}
+
+  /* SECTION COMMON */
+  section{padding:50px 20px;}
+  .section-title{text-align:center;font-size:1.6rem;font-weight:800;color:var(--green);margin-bottom:8px;}
+  .section-sub{text-align:center;color:#777;margin-bottom:32px;font-size:.95rem;}
+  .divider{width:50px;height:4px;background:var(--orange);border-radius:2px;margin:10px auto 28px;}
+
+  /* PRODUCTS */
+  .products{background:var(--cream);}
+  .product-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;max-width:900px;margin:0 auto;}
+  .card{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 4px 18px rgba(0,0,0,.08);transition:transform .2s,box-shadow .2s;}
+  .card:hover{transform:translateY(-4px);box-shadow:0 10px 28px rgba(0,0,0,.13);}
+  .card-img{background:linear-gradient(135deg,var(--green),var(--green-light));height:140px;display:flex;align-items:center;justify-content:center;font-size:4rem;}
+  .card-img.orange{background:linear-gradient(135deg,var(--orange),#f5a623);}
+  .card-img.brown{background:linear-gradient(135deg,#7b4f2e,#a0632e);}
+  .card-body{padding:18px;}
+  .card-name{font-size:1.1rem;font-weight:700;color:var(--brown);margin-bottom:4px;}
+  .card-desc{font-size:.88rem;color:#888;margin-bottom:12px;line-height:1.5;}
+  .card-footer{display:flex;align-items:center;justify-content:space-between;}
+  .price{font-size:1.35rem;font-weight:800;color:var(--orange);}
+  .price span{font-size:.8rem;color:#aaa;font-weight:400;}
+  .btn-sm{background:var(--green);color:#fff;padding:7px 16px;border-radius:20px;text-decoration:none;font-size:.85rem;font-weight:700;}
+  .btn-sm:hover{background:var(--green-light);}
+
+  /* FEATURES */
+  .features{background:#fff;}
+  .feat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;max-width:800px;margin:0 auto;}
+  .feat{background:var(--cream);border-radius:14px;padding:24px 16px;text-align:center;border:2px solid #e8f5ec;}
+  .feat-icon{font-size:2.4rem;margin-bottom:10px;}
+  .feat h3{color:var(--green);font-size:1rem;font-weight:700;margin-bottom:6px;}
+  .feat p{color:#777;font-size:.85rem;line-height:1.5;}
+
+  /* SHIPPING */
+  .shipping{background:linear-gradient(135deg,var(--green),var(--green-light));padding:40px 20px;text-align:center;}
+  .shipping h2{color:#fff;font-size:1.5rem;font-weight:800;margin-bottom:8px;}
+  .shipping p{color:#c8f0d8;margin-bottom:20px;}
+  .ship-logos{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+  .ship-badge{background:rgba(255,255,255,.2);color:#fff;border:2px solid rgba(255,255,255,.4);padding:8px 20px;border-radius:10px;font-weight:700;font-size:.95rem;}
+
+  /* CONTACT */
+  .contact{background:var(--cream);text-align:center;}
+  .line-box{display:inline-block;background:#06C755;color:#fff;border-radius:16px;padding:24px 40px;margin-top:10px;box-shadow:0 6px 20px rgba(6,199,85,.3);}
+  .line-box .line-icon{font-size:2.5rem;margin-bottom:8px;}
+  .line-box p{font-size:.9rem;opacity:.9;margin-bottom:4px;}
+  .line-box strong{font-size:1.4rem;letter-spacing:.5px;}
+  .btn-line{display:inline-block;margin-top:20px;background:var(--orange);color:#fff;font-size:1.1rem;font-weight:800;padding:14px 36px;border-radius:50px;text-decoration:none;box-shadow:0 4px 14px rgba(232,98,26,.4);}
+  .btn-line:hover{background:var(--orange-light);}
+
+  /* FOOTER */
+  footer{background:var(--green);color:#a8d8b4;text-align:center;padding:20px;font-size:.85rem;}
+  footer strong{color:#f9c74f;}
+
+  /* MOBILE */
+  @media(max-width:480px){
+    .hero h1{font-size:1.9rem;}
+    .hero p{font-size:1rem;}
+    .btn-order{font-size:1rem;padding:13px 32px;}
+    .section-title{font-size:1.4rem;}
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">🌶️ <span>น้ำพริกย่าจัน</span></div>
+  <a href="https://line.me/R/ti/p/@namphrik.ya" target="_blank" class="nav-cta">สั่งเลย!</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">🏡 Homemade • ไม่ใส่ผงชูรส</div>
+  <span class="hero-emojis">🌶️🥣🌿</span>
+  <h1>น้ำพริก<span>ย่าจัน</span></h1>
+  <p>รสชาติต้นตำรับ สูตรคุณยาย<br>ส่งตรงถึงบ้านคุณ ทั่วประเทศ</p>
+  <a href="https://line.me/R/ti/p/@namphrik.ya" target="_blank" class="btn-order">🛒 สั่งเลย ผ่าน LINE</a>
+  <p class="hero-note">📦 Kerry & Flash Express • ส่งทั่วประเทศ</p>
+</section>
+
+<!-- PRODUCTS -->
+<section class="products">
+  <h2 class="section-title">เมนูน้ำพริก</h2>
+  <p class="section-sub">คัดสรรวัตถุดิบดี ทำสดใหม่ทุกออเดอร์</p>
+  <div class="divider"></div>
+  <div class="product-grid">
+    <div class="card">
+      <div class="card-img brown">🐟</div>
+      <div class="card-body">
+        <div class="card-name">น้ำพริกปลาร้า</div>
+        <div class="card-desc">กลิ่นหอม รสจัดจ้าน ถูกใจคนชอบรสเข้ม</div>
+        <div class="card-footer">
+          <div class="price">฿80 <span>/ กระปุก</span></div>
+          <a href="https://line.me/R/ti/p/@namphrik.ya" target="_blank" class="btn-sm">สั่งเลย</a>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-img orange">🦐</div>
+      <div class="card-body">
+        <div class="card-name">น้ำพริกกะปิ</div>
+        <div class="card-desc">หอมกะปิแท้ รสกลมกล่อม ทานกับผักสดอร่อยมาก</div>
+        <div class="card-footer">
+          <div class="price">฿75 <span>/ กระปุก</span></div>
+          <a href="https://line.me/R/ti/p/@namphrik.ya" target="_blank" class="btn-sm">สั่งเลย</a>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-img">🌶️</div>
+      <div class="card-body">
+        <div class="card-name">น้ำพริกหนุ่ม</div>
+        <div class="card-desc">พริกเหนือสด รสอ่อนโยน หอมย่าง เหมาะทุกวัย</div>
+        <div class="card-footer">
+          <div class="price">฿70 <span>/ กระปุก</span></div>
+          <a href="https://line.me/R/ti/p/@namphrik.ya" target="_blank" class="btn-sm">สั่งเลย</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features">
+  <h2 class="section-title">ทำไมต้องย่าจัน?</h2>
+  <div class="divider"></div>
+  <div class="feat-grid">
+    <div class="feat">
+      <div class="feat-icon">🚫</div>
+      <h3>ไม่ใส่ผงชูรส</h3>
+      <p>รสชาติล้วนๆ จากวัตถุดิบธรรมชาติ ไม่มีสารเสริม</p>
+    </div>
+    <div class="feat">
+      <div class="feat-icon">🌿</div>
+      <h3>ไม่มีวัตถุกันเสีย</h3>
+      <p>ทำสดใหม่ทุกออเดอร์ ปลอดภัย กินได้ทั้งครอบครัว</p>
+    </div>
+    <div class="feat">
+      <div class="feat-icon">👵</div>
+      <h3>สูตรต้นตำรับ</h3>
+      <p>สืบทอดสูตรคุณยายกว่า 30 ปี รสชาติดั้งเดิม</p>
+    </div>
+    <div class="feat">
+      <div class="feat-icon">📦</div>
+      <h3>ส่งทั่วประเทศ</h3>
+      <p>Kerry & Flash Express บรรจุอย่างดี ถึงมือสดใหม่</p>
+    </div>
+  </div>
+</section>
+
+<!-- SHIPPING -->
+<section class="shipping">
+  <h2>จัดส่งทั่วประเทศไทย</h2>
+  <p>บรรจุในกระปุกสะอาด ซีลอย่างดี ส่งได้ทุกจังหวัด</p>
+  <div class="ship-logos">
+    <div class="ship-badge">🚚 Kerry Express</div>
+    <div class="ship-badge">⚡ Flash Express</div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact">
+  <h2 class="section-title">ช่องทางสั่งซื้อ</h2>
+  <p class="section-sub">ทักหาเราได้เลย ตอบไว ไม่ทิ้ง!</p>
+  <div class="divider"></div>
+  <div class="line-box">
+    <div class="line-icon">💬</div>
+    <p>LINE Official</p>
+    <strong>@namphrik.ya</strong>
+  </div>
+  <br>
+  <a href="https://line.me/R/ti/p/@namphrik.ya" target="_blank" class="btn-line">💬 ทักหาเราใน LINE</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2567 <strong>น้ำพริกย่าจัน</strong> · ทำด้วยใจ รสชาติจากบ้าน 🌶️</p>
+</footer>
+
+</body>
+</html>
